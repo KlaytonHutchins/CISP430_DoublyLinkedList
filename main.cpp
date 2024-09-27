@@ -5,7 +5,7 @@ using namespace std;
 
 //Change file names here if applicable
 string inFileName = "input.txt";
-string outFileName = "output.txt"
+string outFileName = "output.txt";
 
 //Node class with previous and next nodes.
 //Member variables are private, must use getter and setter functions.
