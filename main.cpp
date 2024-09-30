@@ -63,23 +63,23 @@ public:
                 }
         }
         //Insert function
-        void insert(string valueToInsert) {
-                Node* newNode = new Node(valueToInsert);
+        void insert(string nameToInsert) {
+                Node* newNode = new Node(nameToInsert);
                 if (!head) {  //empty list
                         head = newNode;
                         tail = newNode;
-                } else if (valueToInsert < head->getName()) {  //insert at head
+                } else if (nameToInsert < head->getName()) {  //insert at head
                         newNode->setNext(head);
                         head->setPrev(newNode);
                         head = newNode;
-                } else if (valueToInsert > tail->getName()) {  //insert at tail
+                } else if (nameToInsert > tail->getName()) {  //insert at tail
                         newNode->setPrev(tail);
                         tail->setNext(newNode);
                         tail = newNode;
                 } else {  //insert somewhere in the middle of the list
                         Node* curr = head;
                         while(curr) {  //loop through list to find insertion point
-                                if (valueToInsert < curr->getName()) {  //insert before curr
+                                if (nameToInsert < curr->getName()) {  //insert before curr
                                         newNode->setNext(curr);
                                         newNode->setPrev(curr->getPrev());
                                         curr->getPrev()->setNext(newNode);
