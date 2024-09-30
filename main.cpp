@@ -94,6 +94,7 @@ public:
         void deleteNode(string nameToDelete) {
                 Node* curr = head;
                 while (curr) {
+                        Node* nextNode = curr->getNext();
                         if (curr->getName() == nameToDelete) {
                                 if (curr->getPrev()) {  //if curr != head
                                         curr->getPrev()->setNext(curr->getNext());
@@ -106,10 +107,9 @@ public:
                                         tail = curr->getPrev();
                                 }
                                 delete curr;
-                                break;
-                        } else {
-                                curr = curr->getNext();
+                                break;  //comment out if expecting duplicates and want to delete all instances
                         }
+                        curr = nextNode;
                 }
         }
         //Traverse function, uses ofstream to pass data back to main

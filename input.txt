@@ -1,7 +1,9 @@
 Jim
 jill
+jill
 JOHN
 delete	jill
 Bob
+michael
 Jack
 delete	jim

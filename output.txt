@@ -1,7 +1,11 @@
 bob
 jack
+jill
 john
+michael
 =============
+michael
 john
+jill
 jack
 bob
