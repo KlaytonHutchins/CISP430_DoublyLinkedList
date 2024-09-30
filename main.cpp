@@ -42,6 +42,10 @@ private:
         Node* prev;
 };
 
+//Doubly Linked List class with private head and tail.
+//Contains:
+//Constructor, Destructor, Getters and Setters.
+//Self Sorting Insert function, Delete function, and Traversal functions.
 class DoublyLL {
 public:
         //Construct new empty Doubly Linked List
@@ -61,21 +65,21 @@ public:
         //Insert function
         void insert(string valueToInsert) {
                 Node* newNode = new Node(valueToInsert);
-                if (!head) {
+                if (!head) {  //empty list
                         head = newNode;
                         tail = newNode;
-                } else if (valueToInsert < head->getName()) {
+                } else if (valueToInsert < head->getName()) {  //insert at head
                         newNode->setNext(head);
                         head->setPrev(newNode);
                         head = newNode;
-                } else if (valueToInsert > tail->getName()) {
+                } else if (valueToInsert > tail->getName()) {  //insert at tail
                         newNode->setPrev(tail);
                         tail->setNext(newNode);
                         tail = newNode;
-                } else {
+                } else {  //insert somewhere in the middle of the list
                         Node* curr = head;
-                        while(curr) {
-                                if (valueToInsert < curr->getName()) {
+                        while(curr) {  //loop through list to find insertion point
+                                if (valueToInsert < curr->getName()) {  //insert before curr
                                         newNode->setNext(curr);
                                         newNode->setPrev(curr->getPrev());
                                         curr->getPrev()->setNext(newNode);
@@ -91,17 +95,18 @@ public:
                 Node* curr = head;
                 while (curr) {
                         if (curr->getName() == nameToDelete) {
-                                if (curr->getPrev()) {
+                                if (curr->getPrev()) {  //if curr != head
                                         curr->getPrev()->setNext(curr->getNext());
-                                } else {
+                                } else {  //curr == head, reassign head to the second node
                                         head = curr->getNext();
                                 }
-                                if (curr->getNext()) {
+                                if (curr->getNext()) {  //if curr != tail
                                         curr->getNext()->setPrev(curr->getPrev());
-                                } else {
+                                } else {  //deleting tail, reassign tail to its previous node
                                         tail = curr->getPrev();
                                 }
                                 delete curr;
+                                break;
                         } else {
                                 curr = curr->getNext();
                         }
